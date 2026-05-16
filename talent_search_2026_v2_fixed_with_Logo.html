@@ -1,0 +1,2463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>National Talent Search 2026 – ICAI Gandhidham</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+/* ===================================================
+   NTS 2026 PORTAL – PREMIUM PINK/PURPLE DESIGN THEME
+   All original design tokens & aesthetic preserved.
+   =================================================== */
+:root {
+  --pink: #e91e8c;
+  --pink-light: #f8a8d8;
+  --pink-pale: #fde8f4;
+  --blue-dark: #1a2560;
+  --blue-mid: #2d3a8c;
+  --purple: #7b2d8b;
+  --orange: #f97316;
+  --cream: #fff9fb;
+  --white: #ffffff;
+  --shadow: 0 4px 24px rgba(233,30,140,0.10);
+  --radius: 18px;
+  --green: #22c55e;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #fff0f8 0%, #f3f0ff 50%, #fff8f0 100%);
+  min-height: 100vh;
+  color: var(--blue-dark);
+}
+
+/* ===== HEADER ===== */
+.header {
+  background: linear-gradient(135deg, #fff 0%, #fdf0fa 100%);
+  border-bottom: 3px solid var(--pink-light);
+  padding: 18px 30px 14px;
+  text-align: center;
+  box-shadow: 0 4px 18px rgba(233,30,140,0.08);
+  position: relative;
+}
+.header-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+.logo-placeholder {
+  width: 72px; height: 72px;
+  border-radius: 50%;
+  border: 3px dashed var(--pink-light);
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  background: #fff;
+  transition: all .2s;
+  overflow: hidden;
+  flex-shrink: 0;
+  position: relative;
+}
+.logo-placeholder:hover { border-color: var(--pink); box-shadow: 0 0 0 4px #fde8f4; }
+.logo-placeholder img { width: 100%; height: 100%; object-fit: contain; border-radius: 50%; }
+.logo-placeholder .logo-add-text { font-size: 10px; color: #bbb; text-align: center; padding: 6px; pointer-events: none; }
+.logo-placeholder input[type=file] { display: none; }
+
+.header-text { flex: 1; min-width: 220px; }
+.institute-name {
+  font-size: clamp(15px, 2.5vw, 22px);
+  font-weight: 800;
+  color: var(--blue-dark);
+  line-height: 1.2;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.institute-sub { font-size: 11px; color: #666; font-weight: 400; margin-top: 2px; }
+.event-title-header {
+  font-size: clamp(18px, 4vw, 36px);
+  font-weight: 900;
+  letter-spacing: 1px;
+  background: linear-gradient(90deg, #e91e8c 0%, #7b2d8b 60%, #2d3a8c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-top: 6px;
+}
+.event-year { color: var(--blue-dark); -webkit-text-fill-color: var(--blue-dark); }
+.org-row {
+  display: flex; justify-content: center; gap: 40px; flex-wrap: wrap;
+  margin-top: 8px; font-size: 12px;
+}
+.org-row span { color: var(--pink); font-weight: 600; display: block; }
+.org-row b { color: var(--blue-dark); font-size: 13px; }
+
+/* ===== NAV BAR ===== */
+.nav-bar {
+  background: var(--pink);
+  padding: 0 20px;
+  display: flex; align-items: center; gap: 0;
+  flex-wrap: wrap;
+  box-shadow: 0 2px 10px rgba(233,30,140,0.25);
+  position: sticky; top: 0; z-index: 100;
+}
+.nav-bar a {
+  color: #fff; text-decoration: none; font-size: 13px; font-weight: 600;
+  padding: 12px 18px; display: block;
+  transition: background .2s;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  border: none; background: none; font-family: 'Poppins', sans-serif;
+}
+.nav-bar a:hover { background: rgba(255,255,255,0.18); }
+.nav-bar a.active { background: rgba(255,255,255,0.25); border-bottom: 3px solid #fff; }
+.nav-spacer { flex: 1; }
+.admin-btn {
+  background: var(--blue-dark); color: #fff;
+  border: none; padding: 8px 18px; border-radius: 20px;
+  font-size: 12px; font-weight: 700; cursor: pointer;
+  margin: 6px 0; transition: all .2s; font-family: 'Poppins',sans-serif;
+  letter-spacing: 0.5px;
+}
+.admin-btn:hover { background: var(--blue-mid); }
+
+/* ===== INFO BANNER ===== */
+.info-banner {
+  background: linear-gradient(90deg, var(--pink) 0%, var(--purple) 100%);
+  color: #fff; text-align: center; padding: 10px 20px;
+  font-size: 12.5px; font-weight: 600; letter-spacing: 0.3px;
+}
+.info-banner span { margin: 0 16px; }
+
+/* ===== PAGES ===== */
+.page { display: none; padding: 32px 20px; max-width: 1100px; margin: 0 auto; }
+.page.active { display: block; }
+
+/* ===== COUNTDOWN TIMER ===== */
+.countdown-wrap {
+  background: linear-gradient(135deg, var(--blue-dark) 0%, var(--purple) 100%);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  margin-bottom: 28px;
+  box-shadow: 0 8px 32px rgba(123,45,139,0.30);
+  position: relative;
+  overflow: hidden;
+}
+.countdown-wrap::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 80% 20%, rgba(233,30,140,0.25) 0%, transparent 60%);
+  pointer-events: none;
+}
+.countdown-label {
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 12px;
+}
+.countdown-title {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(18px, 3vw, 26px);
+  color: #fff;
+  margin-bottom: 20px;
+}
+.countdown-boxes {
+  display: flex; justify-content: center; gap: 16px; flex-wrap: wrap;
+}
+.countdown-box {
+  background: rgba(255,255,255,0.12);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px;
+  padding: 16px 20px;
+  min-width: 80px;
+  backdrop-filter: blur(6px);
+}
+.countdown-num {
+  font-size: clamp(28px, 6vw, 48px);
+  font-weight: 900;
+  color: #fff;
+  line-height: 1;
+  display: block;
+}
+.countdown-unit {
+  font-size: 10px; font-weight: 700;
+  color: rgba(255,255,255,0.65);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  margin-top: 4px; display: block;
+}
+.countdown-started {
+  font-size: clamp(22px, 4vw, 36px);
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 20px rgba(233,30,140,0.8);
+  animation: glow 1.5s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 10px rgba(233,30,140,0.6); }
+  to { text-shadow: 0 0 30px rgba(233,30,140,1), 0 0 50px rgba(233,30,140,0.5); }
+}
+
+/* ===== REGISTRATION SECTION ===== */
+.reg-section {
+  background: linear-gradient(135deg, #fff 0%, var(--pink-pale) 100%);
+  border-radius: var(--radius);
+  padding: 28px 24px;
+  text-align: center;
+  margin-bottom: 28px;
+  border: 2px solid var(--pink-light);
+  box-shadow: var(--shadow);
+}
+.reg-section h3 {
+  font-size: 18px; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 6px;
+}
+.reg-section p { font-size: 13px; color: #888; margin-bottom: 18px; }
+.qr-wrap {
+  display: inline-block;
+  border: 3px solid var(--pink-light);
+  border-radius: 14px;
+  overflow: hidden;
+  margin-bottom: 18px;
+  box-shadow: 0 4px 16px rgba(233,30,140,0.15);
+}
+.qr-wrap img { width: 180px; height: 180px; object-fit: contain; display: block; }
+.reg-btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: #fff; text-decoration: none;
+  padding: 14px 34px; border-radius: 30px;
+  font-size: 15px; font-weight: 700;
+  box-shadow: 0 6px 20px rgba(233,30,140,0.35);
+  transition: all .25s;
+  letter-spacing: 0.5px;
+}
+.reg-btn:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(233,30,140,0.45); }
+
+/* ===== HOME – Activity Cards ===== */
+.home-tagline {
+  text-align: center; margin-bottom: 28px;
+}
+.home-tagline h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: clamp(22px, 4vw, 36px);
+  color: var(--pink);
+}
+.home-tagline p { font-size: 13px; color: #777; margin-top: 4px; }
+
+.activities-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(210px, 1fr));
+  gap: 22px;
+}
+.activity-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 20px 22px;
+  text-align: center;
+  cursor: pointer;
+  transition: all .25s;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: hidden;
+}
+.activity-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 4px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  opacity: 0; transition: opacity .25s;
+}
+.activity-card:hover { transform: translateY(-6px); box-shadow: 0 12px 36px rgba(233,30,140,0.18); border-color: var(--pink-light); }
+.activity-card:hover::before { opacity: 1; }
+.activity-icon { font-size: 46px; margin-bottom: 12px; display: block; filter: drop-shadow(0 4px 8px rgba(0,0,0,0.10)); }
+.activity-name { font-size: 14px; font-weight: 800; color: var(--blue-dark); text-transform: uppercase; letter-spacing: 1.2px; }
+.activity-tagline { font-size: 11px; color: #aaa; margin-top: 4px; }
+.activity-arrow {
+  display: inline-block; margin-top: 14px;
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: #fff; font-size: 11px; font-weight: 700;
+  padding: 6px 16px; border-radius: 20px;
+  letter-spacing: 0.5px; transition: all .2s;
+}
+.activity-card:hover .activity-arrow { transform: scale(1.06); }
+
+/* ===== ACTIVITY DETAIL PAGE ===== */
+.detail-header {
+  background: linear-gradient(135deg, #fff 0%, var(--pink-pale) 100%);
+  border-radius: var(--radius);
+  padding: 28px 30px 20px;
+  display: flex; align-items: center; gap: 22px;
+  box-shadow: var(--shadow);
+  margin-bottom: 28px;
+  border-left: 6px solid var(--pink);
+  flex-wrap: wrap;
+}
+.detail-icon { font-size: 60px; flex-shrink: 0; }
+.detail-title { font-size: clamp(22px, 4vw, 34px); font-weight: 900; color: var(--blue-dark); }
+.detail-subtitle { font-size: 13px; color: #888; margin-top: 3px; }
+.back-btn {
+  background: none; border: 2px solid var(--pink); color: var(--pink);
+  padding: 7px 18px; border-radius: 20px; font-size: 13px; font-weight: 700;
+  cursor: pointer; font-family: 'Poppins', sans-serif;
+  transition: all .2s; margin-left: auto;
+}
+.back-btn:hover { background: var(--pink); color: #fff; }
+
+/* ===== ACCORDION ===== */
+.accordion { display: flex; flex-direction: column; gap: 14px; }
+.acc-item {
+  background: #fff; border-radius: 14px;
+  box-shadow: 0 2px 14px rgba(0,0,0,0.06);
+  overflow: hidden; transition: box-shadow .2s;
+}
+.acc-item:hover { box-shadow: 0 4px 22px rgba(233,30,140,0.12); }
+.acc-header {
+  padding: 17px 22px; cursor: pointer;
+  display: flex; align-items: center; justify-content: space-between;
+  user-select: none; gap: 12px;
+}
+.acc-header-left { display: flex; align-items: center; gap: 12px; }
+.acc-icon-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink-pale), #e8e0ff);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0;
+}
+.acc-title { font-size: 15px; font-weight: 700; color: var(--blue-dark); }
+.acc-arrow { font-size: 18px; color: var(--pink); transition: transform .3s; flex-shrink: 0; }
+.acc-item.open .acc-arrow { transform: rotate(180deg); }
+.acc-body {
+  max-height: 0; overflow: hidden;
+  transition: max-height .4s ease, padding .3s;
+  padding: 0 22px;
+}
+.acc-item.open .acc-body { max-height: 2000px; padding: 4px 22px 20px; }
+.acc-body ul { list-style: none; padding: 0; }
+.acc-body ul li {
+  padding: 7px 0 7px 22px; position: relative;
+  font-size: 13.5px; color: #444; border-bottom: 1px solid #f5f0f8; line-height: 1.6;
+}
+.acc-body ul li:last-child { border-bottom: none; }
+.acc-body ul li::before {
+  content: '✦'; position: absolute; left: 0;
+  color: var(--pink); font-size: 10px; top: 9px;
+}
+
+/* ===== SCHEDULE TAB ===== */
+.placeholder-card {
+  text-align: center; padding: 60px 30px;
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); margin-top: 20px;
+}
+.placeholder-card .ph-icon { font-size: 56px; display: block; margin-bottom: 16px; opacity: .6; }
+.placeholder-card p { font-size: 15px; color: #aaa; font-weight: 600; }
+.schedule-flyer-wrap {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; margin-top: 20px;
+}
+.schedule-flyer-wrap img { width: 100%; max-width: 700px; display: block; margin: 0 auto; }
+
+/* ===== RESULTS TAB ===== */
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 22px;
+  margin-top: 20px;
+}
+.result-card {
+  background: #fff;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  transition: all .25s;
+  border: 2px solid transparent;
+  position: relative;
+}
+.result-card:hover { transform: translateY(-4px); box-shadow: 0 12px 36px rgba(233,30,140,0.18); border-color: var(--pink-light); }
+.result-card-top {
+  padding: 20px 20px 14px;
+  background: linear-gradient(135deg, var(--blue-dark), var(--purple));
+  text-align: center;
+  position: relative;
+}
+.result-activity { font-size: 11px; font-weight: 700; color: rgba(255,255,255,0.7); letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 6px; }
+.result-position-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.3);
+  color: #fff; font-size: 13px; font-weight: 800;
+  padding: 6px 16px; border-radius: 20px;
+  letter-spacing: 0.5px;
+}
+.result-card-photo {
+  width: 90px; height: 90px; border-radius: 50%;
+  border: 4px solid #fff; object-fit: cover;
+  margin: 12px auto 0; display: block;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+}
+.result-card-photo-team {
+  display: flex; justify-content: center; gap: -10px; padding: 12px 0 0;
+}
+.result-card-photo-team img {
+  width: 64px; height: 64px; border-radius: 50%;
+  border: 3px solid #fff; object-fit: cover; margin: 0 -6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+}
+.result-card-body { padding: 18px 20px; }
+.result-name {
+  font-size: 15px; font-weight: 800; color: var(--blue-dark);
+  text-align: center; margin-bottom: 4px;
+}
+.result-members { font-size: 12px; color: #888; text-align: center; line-height: 1.6; }
+.result-trophy {
+  position: absolute; top: 10px; right: 10px;
+  font-size: 22px;
+}
+
+/* ===== GALLERY TAB ===== */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+.gallery-img-wrap {
+  border-radius: 12px; overflow: hidden;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.1);
+  aspect-ratio: 1;
+  cursor: pointer;
+  transition: all .25s;
+  position: relative;
+}
+.gallery-img-wrap:hover { transform: scale(1.03); box-shadow: 0 8px 28px rgba(233,30,140,0.2); }
+.gallery-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.gallery-img-wrap::after {
+  content: '🔍';
+  position: absolute; inset: 0;
+  background: rgba(233,30,140,0.3);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 28px;
+  opacity: 0; transition: opacity .25s;
+}
+.gallery-img-wrap:hover::after { opacity: 1; }
+
+/* Gallery lightbox */
+.lightbox-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.92); z-index: 2000;
+  align-items: center; justify-content: center;
+}
+.lightbox-overlay.open { display: flex; }
+.lightbox-img {
+  max-width: 90vw; max-height: 88vh;
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+}
+.lightbox-close {
+  position: fixed; top: 18px; right: 22px;
+  font-size: 32px; color: #fff; cursor: pointer;
+  line-height: 1; background: none; border: none;
+  font-family: 'Poppins', sans-serif;
+  transition: transform .2s;
+}
+.lightbox-close:hover { transform: scale(1.2); }
+
+/* ===== BRANDING TAB ===== */
+.branding-section {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+  margin-bottom: 22px;
+  border: 2px solid transparent;
+  transition: border-color .2s;
+}
+.branding-section:hover { border-color: var(--pink-light); }
+.branding-inner {
+  display: grid;
+  grid-template-columns: 1fr 260px;
+  gap: 0;
+}
+.branding-text-col {
+  padding: 32px 30px;
+  border-right: 1px solid var(--pink-pale);
+}
+.branding-section-title {
+  font-size: 11px; font-weight: 700; color: var(--pink);
+  letter-spacing: 2px; text-transform: uppercase; margin-bottom: 8px;
+}
+.branding-message {
+  font-size: 14px; color: #555; line-height: 1.9;
+  white-space: pre-wrap;
+}
+.branding-img-col {
+  padding: 20px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--pink-pale);
+}
+.branding-img-col img {
+  width: 100%; max-width: 220px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(233,30,140,0.2);
+  object-fit: cover;
+}
+.committee-photo-wrap {
+  background: #fff; border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden; margin-bottom: 22px;
+}
+.committee-photo-wrap img { width: 100%; display: block; }
+.committee-photo-label {
+  padding: 14px 20px;
+  font-size: 13px; font-weight: 700; color: var(--blue-dark);
+  text-align: center;
+  border-top: 1px solid var(--pink-pale);
+}
+
+/* ===== IMPORTANT CONTACTS (Global Footer Section) ===== */
+.contacts-global {
+  background: linear-gradient(135deg, var(--blue-dark), var(--blue-mid));
+  padding: 28px 20px;
+  margin-top: 0;
+}
+.contacts-inner {
+  max-width: 1100px; margin: 0 auto;
+  display: flex; gap: 20px; flex-wrap: wrap;
+  align-items: center; justify-content: center;
+}
+.contacts-title {
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,0.7);
+  letter-spacing: 1.5px; text-transform: uppercase;
+  text-align: center; width: 100%; margin-bottom: 8px;
+}
+.contact-card {
+  background: rgba(255,255,255,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 14px;
+  padding: 14px 24px;
+  display: flex; align-items: center; gap: 14px;
+  transition: background .2s;
+}
+.contact-card:hover { background: rgba(255,255,255,0.16); }
+.contact-avatar {
+  width: 42px; height: 42px; border-radius: 50%;
+  background: linear-gradient(135deg, var(--pink), var(--purple));
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; flex-shrink: 0; color: #fff; font-weight: 700;
+}
+.contact-name { font-size: 14px; font-weight: 700; color: #fff; }
+.contact-phone { font-size: 12px; color: rgba(255,255,255,0.7); margin-top: 2px; }
+.contact-phone a { color: var(--pink-light); text-decoration: none; font-weight: 600; }
+.contact-phone a:hover { color: #fff; }
+
+/* ===== FOOTER CREDIT ===== */
+/* === FOOTER CREDIT SECTION - Remove this block if needed === */
+.footer-credit {
+  background: var(--blue-dark);
+  padding: 10px 20px;
+  text-align: right;
+}
+.footer-credit-text {
+  font-size: 11px; color: rgba(255,255,255,0.4);
+  max-width: 1100px; margin: 0 auto;
+}
+.footer-credit-text a { color: rgba(255,255,255,0.5); text-decoration: none; }
+/* === END FOOTER CREDIT SECTION === */
+
+/* ===== WHATSAPP FLOATING BUTTON ===== */
+.wa-float {
+  position: fixed; bottom: 80px; left: 20px;
+  z-index: 900;
+  display: none; /* shown via JS if number set */
+}
+.wa-float a {
+  display: flex; align-items: center; justify-content: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  background: #25D366;
+  box-shadow: 0 4px 18px rgba(37,211,102,0.45);
+  transition: all .25s;
+  text-decoration: none; font-size: 26px;
+}
+.wa-float a:hover { transform: scale(1.1); box-shadow: 0 8px 28px rgba(37,211,102,0.6); }
+.wa-float-label {
+  position: absolute; right: 62px; top: 50%; transform: translateY(-50%);
+  background: #fff; color: #333; font-size: 11px; font-weight: 700;
+  padding: 4px 10px; border-radius: 20px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  white-space: nowrap; pointer-events: none;
+  opacity: 0; transition: opacity .2s;
+}
+.wa-float:hover .wa-float-label { opacity: 1; }
+
+/* ===== ADMIN MODAL ===== */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(26,37,96,0.5); z-index: 1000;
+  align-items: center; justify-content: center;
+}
+.modal-overlay.open { display: flex; }
+.modal {
+  background: #fff; border-radius: 20px;
+  padding: 36px 30px; width: 90%; max-width: 460px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.2);
+  animation: popIn .25s ease;
+}
+@keyframes popIn {
+  from { transform: scale(.92); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+.modal h3 { font-size: 22px; font-weight: 800; color: var(--blue-dark); margin-bottom: 6px; }
+.modal p { font-size: 13px; color: #888; margin-bottom: 22px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { font-size: 12px; font-weight: 700; color: #555; display: block; margin-bottom: 5px; letter-spacing: 0.5px; text-transform: uppercase; }
+.form-group input {
+  width: 100%; padding: 11px 16px; border: 2px solid #e8e0f0;
+  border-radius: 10px; font-size: 14px; font-family: 'Poppins',sans-serif;
+  outline: none; transition: border .2s; background: #faf8ff;
+}
+.form-group input:focus { border-color: var(--pink); }
+.modal-btns { display: flex; gap: 12px; margin-top: 22px; }
+.btn-primary {
+  flex: 1; background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: #fff; border: none; padding: 12px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins',sans-serif;
+  transition: opacity .2s;
+}
+.btn-primary:hover { opacity: .88; }
+.btn-cancel {
+  flex: 1; background: #f3f0ff; color: var(--blue-dark);
+  border: none; padding: 12px; border-radius: 10px;
+  font-size: 14px; font-weight: 700; cursor: pointer; font-family: 'Poppins',sans-serif;
+  transition: background .2s;
+}
+.btn-cancel:hover { background: #e8e0ff; }
+.error-msg { color: #e53e3e; font-size: 12px; margin-top: 8px; display: none; }
+
+/* ===== ADMIN PANEL ===== */
+.admin-panel-wrap { padding: 28px 20px; max-width: 1100px; margin: 0 auto; display: none; }
+.admin-section {
+  background: #fff; border-radius: var(--radius); padding: 24px 26px;
+  box-shadow: var(--shadow); margin-bottom: 22px;
+}
+.admin-section h3 {
+  font-size: 16px; font-weight: 800; color: var(--blue-dark);
+  margin-bottom: 16px; padding-bottom: 10px; border-bottom: 2px solid var(--pink-pale);
+  display: flex; align-items: center; gap: 8px;
+}
+.admin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.admin-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; }
+.admin-input {
+  width: 100%; padding: 10px 14px; border: 2px solid #e8e0f0;
+  border-radius: 10px; font-size: 13px; font-family: 'Poppins',sans-serif;
+  outline: none; transition: border .2s; background: #faf8ff;
+}
+.admin-input:focus { border-color: var(--pink); }
+.admin-textarea {
+  width: 100%; padding: 10px 14px; border: 2px solid #e8e0f0;
+  border-radius: 10px; font-size: 13px; font-family: 'Poppins',sans-serif;
+  outline: none; transition: border .2s; background: #faf8ff;
+  resize: vertical; min-height: 90px;
+}
+.admin-textarea:focus { border-color: var(--pink); }
+.admin-input-label { font-size: 11px; font-weight: 700; color: #888; margin-bottom: 4px; text-transform: uppercase; letter-spacing: 0.4px; display: block; }
+.save-btn {
+  background: linear-gradient(90deg, var(--pink), var(--purple));
+  color: #fff; border: none; padding: 10px 24px; border-radius: 10px;
+  font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Poppins',sans-serif;
+  margin-top: 12px; transition: opacity .2s;
+}
+.save-btn:hover { opacity: .88; }
+.danger-btn {
+  background: #fff; color: #e53e3e; border: 2px solid #e53e3e;
+  padding: 6px 14px; border-radius: 8px; font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: 'Poppins',sans-serif; transition: all .2s;
+}
+.danger-btn:hover { background: #e53e3e; color: #fff; }
+.add-btn {
+  background: var(--pink-pale); color: var(--pink); border: 2px solid var(--pink-light);
+  padding: 7px 16px; border-radius: 8px; font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: 'Poppins',sans-serif; transition: all .2s;
+  display: inline-flex; align-items: center; gap: 5px;
+}
+.add-btn:hover { background: var(--pink); color: #fff; }
+.export-btn {
+  background: linear-gradient(90deg, var(--blue-dark), var(--blue-mid));
+  color: #fff; border: none; padding: 12px 28px; border-radius: 10px;
+  font-size: 13px; font-weight: 700; cursor: pointer; font-family: 'Poppins',sans-serif;
+  transition: opacity .2s; display: inline-flex; align-items: center; gap: 8px;
+}
+.export-btn:hover { opacity: .88; }
+
+/* Admin tabs */
+.admin-tabs { display: flex; gap: 10px; margin-bottom: 20px; flex-wrap: wrap; }
+.admin-tab {
+  padding: 8px 18px; border-radius: 20px; border: 2px solid #e8e0f0;
+  font-size: 12px; font-weight: 700; cursor: pointer; transition: all .2s;
+  font-family: 'Poppins',sans-serif; background: #fff; color: #888;
+}
+.admin-tab.active { background: var(--pink); color: #fff; border-color: var(--pink); }
+.admin-content { display: none; }
+.admin-content.active { display: block; }
+
+/* Activity editor */
+.activity-editor {
+  border: 2px solid #f0e8f8; border-radius: 12px; padding: 18px; margin-bottom: 14px;
+  background: #fdf8ff;
+}
+.activity-editor-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px; gap: 10px; flex-wrap: wrap;
+}
+.activity-editor-header b { font-size: 14px; color: var(--blue-dark); }
+.section-editor {
+  border: 1px solid #e8e0f0; border-radius: 10px; padding: 14px; margin-bottom: 10px;
+  background: #fff;
+}
+.section-editor-header {
+  display: flex; align-items: center; justify-content: space-between; margin-bottom: 10px;
+}
+.section-editor-header input { flex: 1; margin-right: 10px; }
+.point-row { display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.point-row input { flex: 1; }
+
+/* Result admin editor */
+.result-editor {
+  border: 2px solid #f0e8f8; border-radius: 12px; padding: 18px; margin-bottom: 14px;
+  background: #fdf8ff;
+}
+.result-editor-header {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 14px; flex-wrap: wrap; gap: 8px;
+}
+.member-row { display: flex; gap: 10px; align-items: center; margin-bottom: 8px; flex-wrap: wrap; }
+.member-row input { flex: 1; min-width: 120px; }
+
+/* Branding admin editor */
+.branding-editor {
+  border: 2px solid #f0e8f8; border-radius: 12px; padding: 18px; margin-bottom: 14px;
+  background: #fdf8ff;
+}
+
+/* Upload preview */
+.img-preview-wrap {
+  margin-top: 10px; display: flex; gap: 10px; flex-wrap: wrap; align-items: flex-start;
+}
+.img-preview-wrap img {
+  width: 80px; height: 80px; border-radius: 10px; object-fit: cover;
+  border: 2px solid var(--pink-light);
+}
+.img-remove-btn {
+  background: #e53e3e; color: #fff; border: none; border-radius: 50%;
+  width: 22px; height: 22px; font-size: 12px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  position: relative; top: -8px; left: -8px; margin-left: -14px;
+}
+
+/* Upload area style */
+.upload-area {
+  border: 2px dashed var(--pink-light);
+  border-radius: 12px; padding: 22px;
+  text-align: center; background: var(--pink-pale);
+  cursor: pointer; transition: all .2s;
+}
+.upload-area:hover { border-color: var(--pink); background: #f9e0f1; }
+.upload-area label {
+  font-size: 13px; color: var(--pink); font-weight: 700;
+  cursor: pointer; display: block;
+}
+.upload-area input[type=file] { display: none; }
+
+/* Gallery admin thumbnails */
+.gallery-admin-thumbs {
+  display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px;
+}
+.gallery-admin-thumb {
+  position: relative; display: inline-block;
+}
+.gallery-admin-thumb img {
+  width: 80px; height: 80px; border-radius: 10px; object-fit: cover;
+  border: 2px solid var(--pink-light);
+}
+.gallery-thumb-remove {
+  position: absolute; top: -6px; right: -6px;
+  background: #e53e3e; color: #fff; border: none; border-radius: 50%;
+  width: 20px; height: 20px; font-size: 11px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Admin header bar */
+.admin-header-bar {
+  display: flex; align-items: center; justify-content: space-between;
+  margin-bottom: 20px; flex-wrap: wrap; gap: 10px;
+}
+.logout-btn {
+  background: none; border: 2px solid rgba(255,255,255,0.5); color: #fff;
+  padding: 7px 16px; border-radius: 20px; font-size: 12px; font-weight: 700;
+  cursor: pointer; font-family: 'Poppins',sans-serif; transition: all .2s; margin: 6px 0;
+}
+.logout-btn:hover { background: rgba(255,255,255,0.2); }
+
+/* Tag badge */
+.tag-badge {
+  display: inline-block; background: var(--pink-pale); color: var(--pink);
+  border-radius: 20px; padding: 3px 12px; font-size: 11px; font-weight: 700;
+  border: 1.5px solid var(--pink-light);
+}
+
+/* TOAST */
+.toast {
+  position: fixed; bottom: 28px; right: 28px;
+  background: var(--blue-dark); color: #fff;
+  padding: 12px 22px; border-radius: 12px;
+  font-size: 13px; font-weight: 600;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+  z-index: 9999; display: none;
+  animation: slideUp .3s ease;
+}
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* Page section titles */
+.page-section-title {
+  font-size: clamp(18px, 3vw, 26px);
+  font-weight: 900; color: var(--blue-dark);
+  margin-bottom: 6px;
+}
+.page-section-sub { font-size: 13px; color: #aaa; margin-bottom: 24px; }
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 700px) {
+  .header-inner { gap: 10px; }
+  .admin-grid { grid-template-columns: 1fr; }
+  .admin-grid-3 { grid-template-columns: 1fr; }
+  .detail-header { padding: 20px 16px; }
+  .page { padding: 20px 12px; }
+  .branding-inner { grid-template-columns: 1fr; }
+  .branding-img-col { border-right: none; border-top: 1px solid var(--pink-pale); }
+  .branding-text-col { border-right: none; }
+  .info-banner { font-size: 11px; }
+  .info-banner span { display: block; margin: 2px 0; }
+}
+@media (max-width: 480px) {
+  .nav-bar a { padding: 10px 12px; font-size: 12px; }
+  .countdown-boxes { gap: 10px; }
+  .countdown-box { min-width: 64px; padding: 12px 14px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== INFO BANNER ===== -->
+<div class="info-banner" id="infoBanner">
+  <span>📅 24th May, 2026 (Sunday) | 9:30 AM Onwards</span>
+  <span>📍 ICAI Gandhidham Branch Premises</span>
+  <span>⏰ Last Date of Registration: 22nd May, 2026</span>
+</div>
+
+<!-- ===== HEADER ===== -->
+<div class="header" id="siteHeader">
+  <div class="header-inner">
+    <!-- Left Logo (click to upload) -->
+    <div class="logo-placeholder" id="logo1Wrap" title="Click to upload left logo" onclick="adminLogoUpload('logo1Input')">
+      <img id="logo1Img" src="" style="display:none;" alt="Logo 1">
+      <div class="logo-add-text" id="logo1Text">+ Add<br>Logo</div>
+      <input type="file" id="logo1Input" accept="image/*" onchange="handleLogoUpload('logo1Img','logo1Text',this)">
+    </div>
+
+    <!-- Institute & Event Title -->
+    <div class="header-text">
+      <div class="institute-name" id="instituteName">The Institute of Chartered Accountants of India</div>
+      <div class="institute-sub" id="instituteSub">(Set up by an Act of Parliament)</div>
+      <div class="event-title-header">National Talent Search <span class="event-year">2026</span></div>
+      <div class="org-row">
+        <div><span>ORGANISED BY</span><b id="organiserName">Board of Studies – Operations</b></div>
+        <div><span>HOSTED BY</span><b id="hosterName">Gandhidham Branch (WICASA)</b></div>
+      </div>
+    </div>
+
+    <!-- Right Logo (click to upload) -->
+    <div class="logo-placeholder" id="logo2Wrap" title="Click to upload right logo" onclick="adminLogoUpload('logo2Input')">
+      <img id="logo2Img" src="" style="display:none;" alt="Logo 2">
+      <div class="logo-add-text" id="logo2Text">+ Add<br>Logo</div>
+      <input type="file" id="logo2Input" accept="image/*" onchange="handleLogoUpload('logo2Img','logo2Text',this)">
+    </div>
+  </div>
+</div>
+
+<!-- ===== NAV BAR ===== -->
+<div class="nav-bar" id="mainNav">
+  <a onclick="showTab('home',this)" class="active" id="nav-home">🏠 Home</a>
+  <a onclick="showTab('schedule',this)" id="nav-schedule">📅 Schedule</a>
+  <a onclick="showTab('results',this)" id="nav-results">🏆 Results</a>
+  <a onclick="showTab('gallery',this)" id="nav-gallery">📸 Gallery</a>
+  <a onclick="showTab('branding',this)" id="nav-branding">🌟 Branding</a>
+  <a onclick="showAdminPanel(event)" id="adminNavLink" style="display:none;">⚙️ Admin Panel</a>
+  <div class="nav-spacer"></div>
+ <button class="admin-btn" id="loginLogoutBtn" onclick="openLoginModal()">🔐 Admin Login</button>
+</div>
+
+<!-- ===================================================
+     HOME TAB
+     =================================================== -->
+<div class="page active" id="page-home">
+
+  <!-- Countdown Timer -->
+  <div class="countdown-wrap" id="countdownSection">
+    <div class="countdown-label">Event Countdown</div>
+    <div class="countdown-title" id="countdownEventTitle">National Talent Search 2026</div>
+    <div id="countdownDisplay" class="countdown-boxes">
+      <div class="countdown-box"><span class="countdown-num" id="cd-days">--</span><span class="countdown-unit">Days</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-hours">--</span><span class="countdown-unit">Hours</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-mins">--</span><span class="countdown-unit">Mins</span></div>
+      <div class="countdown-box"><span class="countdown-num" id="cd-secs">--</span><span class="countdown-unit">Secs</span></div>
+    </div>
+  </div>
+
+  <!-- Registration Section -->
+  <div class="reg-section" id="regSection" style="display:none;">
+    <h3>📝 Register Now</h3>
+    <p>Scan the QR code or click the button below to register for NTS 2026</p>
+    <div class="qr-wrap" id="qrWrap" style="display:none;">
+      <img id="qrImage" src="" alt="Registration QR Code">
+    </div>
+    <br>
+    <a id="regLink" href="#" target="_blank" class="reg-btn" style="display:none;">
+      📋 Register Now
+    </a>
+  </div>
+
+  <!-- Activity Tagline -->
+  <div class="home-tagline">
+    <h2>Unleash Your Talent. Make Your Mark!</h2>
+    <p>Select an activity below to view detailed instructions, eligibility, rules &amp; topics.</p>
+  </div>
+
+  <!-- Activities Grid -->
+  <div class="activities-grid" id="activitiesGrid"></div>
+
+</div><!-- /page-home -->
+
+<!-- ===================================================
+     DETAIL PAGE (sub-page within home flow)
+     =================================================== -->
+<div class="page" id="detailPage">
+  <div class="detail-header">
+    <div class="detail-icon" id="detailIcon"></div>
+    <div>
+      <div class="detail-title" id="detailTitle"></div>
+      <div class="detail-subtitle">Click on any heading below to expand and view details</div>
+    </div>
+    <button class="back-btn" onclick="closeDetail()">← Back</button>
+  </div>
+  <div class="accordion" id="accordionContainer"></div>
+</div>
+
+<!-- ===================================================
+     SCHEDULE TAB
+     =================================================== -->
+<div class="page" id="page-schedule">
+  <div class="page-section-title">📅 Event Schedule</div>
+  <div class="page-section-sub">Full event timeline and programme details</div>
+  <div id="scheduleFlyerWrap" class="schedule-flyer-wrap" style="display:none;">
+    <img id="scheduleFlyerImg" src="" alt="Event Schedule">
+  </div>
+  <div id="schedulePlaceholder" class="placeholder-card">
+    <span class="ph-icon">🗓️</span>
+    <p>Schedule Will Be Updated Soon</p>
+  </div>
+</div>
+
+<!-- ===================================================
+     RESULTS TAB
+     =================================================== -->
+<div class="page" id="page-results">
+  <div class="page-section-title">🏆 Results</div>
+  <div class="page-section-sub">Winners and achievements of NTS 2026</div>
+  <div id="resultsGrid" class="results-grid"></div>
+  <div id="resultsPlaceholder" class="placeholder-card">
+    <span class="ph-icon">🏅</span>
+    <p>Results Will Be Updated Soon</p>
+  </div>
+</div>
+
+<!-- ===================================================
+     GALLERY TAB
+     =================================================== -->
+<div class="page" id="page-gallery">
+  <div class="page-section-title">📸 Photo Gallery</div>
+  <div class="page-section-sub">Memories from NTS 2026</div>
+  <div id="galleryGrid" class="gallery-grid"></div>
+  <div id="galleryPlaceholder" class="placeholder-card">
+    <span class="ph-icon">🖼️</span>
+    <p>Photos Will Be Shared Soon</p>
+  </div>
+</div>
+
+<!-- ===================================================
+     BRANDING TAB
+     =================================================== -->
+<div class="page" id="page-branding">
+  <div class="page-section-title">🌟 Branding &amp; Messages</div>
+  <div class="page-section-sub">Messages from our leaders and committee</div>
+  <div id="brandingSections"></div>
+  <div id="committeePhotoWrap" class="committee-photo-wrap" style="display:none;">
+    <img id="committeePhotoImg" src="" alt="Committee Photo">
+    <div class="committee-photo-label" id="committeePhotoLabel">Our Committee</div>
+  </div>
+  <div id="brandingPlaceholder" class="placeholder-card">
+    <span class="ph-icon">🌺</span>
+    <p>Branding Content Will Be Added Soon</p>
+  </div>
+</div>
+
+<!-- ===================================================
+     ADMIN PANEL
+     =================================================== -->
+<div class="admin-panel-wrap" id="adminPanelWrap">
+
+  <div class="admin-header-bar">
+    <div>
+      <div style="font-size:22px;font-weight:900;color:var(--blue-dark);">⚙️ Admin Panel</div>
+      <div style="font-size:12px;color:#aaa;">All changes are auto-saved in your browser (localStorage).</div>
+    </div>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+      <!-- Export buttons — visible only when logged in -->
+      <button class="export-btn" onclick="exportHTML('admin')" title="Download Admin Version">⬇️ Export Admin</button>
+      <button class="export-btn" onclick="exportHTML('public')" style="background:linear-gradient(90deg,var(--green),#16a34a);" title="Download Public Version">🌐 Export Public</button>
+      <button class="logout-btn" style="background:var(--pink);border-color:var(--pink);" onclick="adminLogout()">🚪 Logout</button>
+    </div>
+  </div>
+
+  <!-- Admin Navigation Tabs -->
+  <div class="admin-tabs">
+    <button class="admin-tab active" onclick="switchAdminTab('tab-site',this)">🏛️ Site</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-countdown',this)">⏳ Countdown</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-contacts',this)">📞 Contacts</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-registration',this)">📝 Registration</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-schedule',this)">📅 Schedule</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-results',this)">🏆 Results</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-branding',this)">🌟 Branding</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-gallery',this)">📸 Gallery</button>
+    <button class="admin-tab" onclick="switchAdminTab('tab-activities',this)">📋 Activities</button>
+  </div>
+
+  <!-- TAB: SITE SETTINGS -->
+  <div class="admin-content active" id="tab-site">
+    <div class="admin-section">
+      <h3>🏛️ Institution &amp; Event Info</h3>
+      <div class="admin-grid">
+        <div><label class="admin-input-label">Institution Name</label><input class="admin-input" id="adm-institute" placeholder="Institution Name"></div>
+        <div><label class="admin-input-label">Sub-title</label><input class="admin-input" id="adm-sub" placeholder="e.g. (Set up by an Act of Parliament)"></div>
+        <div><label class="admin-input-label">Organised By</label><input class="admin-input" id="adm-organiser" placeholder="Organiser name"></div>
+        <div><label class="admin-input-label">Hosted By</label><input class="admin-input" id="adm-hoster" placeholder="Hoster name"></div>
+        <div><label class="admin-input-label">Event Date &amp; Time (display text)</label><input class="admin-input" id="adm-date" placeholder="e.g. 24th May, 2026 | 9:30 AM"></div>
+        <div><label class="admin-input-label">Venue</label><input class="admin-input" id="adm-venue" placeholder="Venue"></div>
+        <div><label class="admin-input-label">Last Date of Registration</label><input class="admin-input" id="adm-regdate" placeholder="e.g. 22nd May, 2026"></div>
+      </div>
+      <button class="save-btn" onclick="saveSiteSettings()">💾 Save Site Settings</button>
+    </div>
+  </div>
+
+  <!-- TAB: COUNTDOWN -->
+  <div class="admin-content" id="tab-countdown">
+    <div class="admin-section">
+      <h3>⏳ Countdown Timer</h3>
+      <div class="admin-grid">
+        <div>
+          <label class="admin-input-label">Event Start Date &amp; Time</label>
+          <input class="admin-input" type="datetime-local" id="adm-countdown-dt">
+        </div>
+        <div>
+          <label class="admin-input-label">Countdown Label (e.g. event name)</label>
+          <input class="admin-input" id="adm-countdown-label" placeholder="National Talent Search 2026">
+        </div>
+      </div>
+      <button class="save-btn" onclick="saveCountdown()">💾 Save Countdown</button>
+    </div>
+  </div>
+
+  <!-- TAB: CONTACTS -->
+  <div class="admin-content" id="tab-contacts">
+    <div class="admin-section">
+      <h3>📞 Important Contacts <span class="tag-badge">Max 2</span></h3>
+      <p style="font-size:12px;color:#aaa;margin-bottom:16px;">Leave both fields blank to hide the contacts section globally.</p>
+      <div style="margin-bottom:18px;">
+        <b style="font-size:13px;color:var(--blue-dark);">Contact 1</b>
+        <div class="admin-grid" style="margin-top:8px;">
+          <div><label class="admin-input-label">Name</label><input class="admin-input" id="adm-c1name" placeholder="Name"></div>
+          <div><label class="admin-input-label">Phone Number</label><input class="admin-input" id="adm-c1phone" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+      </div>
+      <div>
+        <b style="font-size:13px;color:var(--blue-dark);">Contact 2</b>
+        <div class="admin-grid" style="margin-top:8px;">
+          <div><label class="admin-input-label">Name</label><input class="admin-input" id="adm-c2name" placeholder="Name"></div>
+          <div><label class="admin-input-label">Phone Number</label><input class="admin-input" id="adm-c2phone" placeholder="+91 XXXXX XXXXX"></div>
+        </div>
+      </div>
+      <div style="margin-top:18px;">
+        <label class="admin-input-label">WhatsApp Number (for floating button)</label>
+        <input class="admin-input" id="adm-waNumber" placeholder="e.g. 919876543210 (country code + number, no +)">
+        <div style="font-size:11px;color:#aaa;margin-top:4px;">Leave blank to hide WhatsApp button.</div>
+      </div>
+      <button class="save-btn" onclick="saveContacts()">💾 Save Contacts</button>
+    </div>
+  </div>
+
+  <!-- TAB: REGISTRATION -->
+  <div class="admin-content" id="tab-registration">
+    <div class="admin-section">
+      <h3>📝 Registration</h3>
+      <div style="margin-bottom:16px;">
+        <label class="admin-input-label">Google Form / Registration Link</label>
+        <input class="admin-input" id="adm-regLink" placeholder="https://forms.google.com/...">
+        <div style="font-size:11px;color:#aaa;margin-top:4px;">Leave blank to hide Register button.</div>
+      </div>
+      <div>
+        <label class="admin-input-label">QR Code Image</label>
+        <div class="upload-area" onclick="document.getElementById('qrUploadInput').click()">
+          <label>📤 Click to upload QR Code image</label>
+          <input type="file" id="qrUploadInput" accept="image/*" onchange="handleQRUpload(this)">
+        </div>
+        <div id="qrAdminPreview" style="margin-top:10px;display:none;">
+          <img id="qrAdminPreviewImg" style="width:120px;height:120px;border-radius:10px;object-fit:contain;border:2px solid var(--pink-light);">
+          <button class="danger-btn" style="margin-left:12px;vertical-align:top;" onclick="removeQR()">✕ Remove QR</button>
+        </div>
+        <div style="font-size:11px;color:#aaa;margin-top:4px;">Leave empty to hide QR section.</div>
+      </div>
+      <button class="save-btn" onclick="saveRegistration()">💾 Save Registration</button>
+    </div>
+  </div>
+
+  <!-- TAB: SCHEDULE -->
+  <div class="admin-content" id="tab-schedule">
+    <div class="admin-section">
+      <h3>📅 Schedule Flyer</h3>
+      <div class="upload-area" onclick="document.getElementById('scheduleFlyerInput').click()">
+        <label>📤 Click to upload Schedule Flyer image</label>
+        <input type="file" id="scheduleFlyerInput" accept="image/*" onchange="handleScheduleUpload(this)">
+      </div>
+      <div id="scheduleFlyerAdminPreview" style="margin-top:12px;display:none;">
+        <img id="scheduleFlyerAdminImg" style="max-width:300px;width:100%;border-radius:12px;border:2px solid var(--pink-light);">
+        <br>
+        <button class="danger-btn" style="margin-top:10px;" onclick="removeScheduleFlyer()">✕ Remove Flyer</button>
+      </div>
+      <div style="font-size:11px;color:#aaa;margin-top:10px;">If no flyer uploaded, a "Coming Soon" placeholder will show.</div>
+    </div>
+  </div>
+
+  <!-- TAB: RESULTS -->
+  <div class="admin-content" id="tab-results">
+    <div class="admin-section">
+      <h3>🏆 Results</h3>
+      <div id="resultsEditorList"></div>
+      <button class="add-btn" onclick="addResultEntry()">＋ Add Result Entry</button>
+    </div>
+  </div>
+
+  <!-- TAB: BRANDING -->
+  <div class="admin-content" id="tab-branding">
+    <div class="admin-section">
+      <h3>🌟 Branding &amp; Messages</h3>
+      <div id="brandingEditorList"></div>
+      <button class="add-btn" onclick="addBrandingSection()">＋ Add Message Section</button>
+      <div style="margin-top:24px;border-top:2px solid var(--pink-pale);padding-top:18px;">
+        <b style="font-size:14px;color:var(--blue-dark);">Committee Group Photo</b>
+        <div style="font-size:11px;color:#aaa;margin-bottom:12px;">Shown at the bottom of the Branding tab.</div>
+        <div class="upload-area" onclick="document.getElementById('committeePhotoInput').click()">
+          <label>📤 Upload Committee Photo</label>
+          <input type="file" id="committeePhotoInput" accept="image/*" onchange="handleCommitteePhoto(this)">
+        </div>
+        <div id="committeePhotoAdminPreview" style="margin-top:10px;display:none;">
+          <img id="committeePhotoAdminImg" style="max-width:300px;width:100%;border-radius:12px;border:2px solid var(--pink-light);">
+          <br>
+          <div style="margin-top:8px;">
+            <label class="admin-input-label">Photo Caption</label>
+            <input class="admin-input" id="adm-committeeLabel" placeholder="e.g. WICASA Committee 2025-26">
+          </div>
+          <button class="danger-btn" style="margin-top:10px;" onclick="removeCommitteePhoto()">✕ Remove Photo</button>
+        </div>
+        <button class="save-btn" onclick="saveCommitteePhoto()">💾 Save Committee Photo</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- TAB: GALLERY -->
+  <div class="admin-content" id="tab-gallery">
+    <div class="admin-section">
+      <h3>📸 Gallery</h3>
+      <div class="upload-area" onclick="document.getElementById('galleryInput').click()">
+        <label>📤 Click to upload photos (select multiple)</label>
+        <input type="file" id="galleryInput" accept="image/*" multiple onchange="handleGalleryUpload(this)">
+      </div>
+      <div id="galleryAdminThumbs" class="gallery-admin-thumbs" style="margin-top:14px;"></div>
+      <div style="font-size:11px;color:#aaa;margin-top:10px;">If no photos added, a "Coming Soon" placeholder will show.</div>
+    </div>
+  </div>
+
+  <!-- TAB: ACTIVITIES -->
+  <div class="admin-content" id="tab-activities">
+    <div class="admin-section">
+      <h3>📋 Activities &amp; Content</h3>
+      <div id="activityEditorsList"></div>
+      <button class="add-btn" onclick="addNewActivity()">＋ Add New Activity</button>
+    </div>
+  </div>
+
+</div><!-- /adminPanelWrap -->
+
+<!-- ===================================================
+     GLOBAL IMPORTANT CONTACTS (shown on all tabs)
+     =================================================== -->
+<div class="contacts-global" id="contactsGlobal" style="display:none;">
+  <div class="contacts-inner" id="contactsInner">
+    <div class="contacts-title">📞 Important Contacts</div>
+  </div>
+</div>
+
+<!-- ===================================================
+     FOOTER CREDIT
+     === FOOTER CREDIT SECTION START – Remove easily ===
+     =================================================== -->
+<div class="footer-credit" id="footerCredit">
+  <div class="footer-credit-text">
+    Made with ❤️ by <strong style="color:rgba(255,255,255,0.6);">Mr. Mohit Hemani</strong> · Secretary, WICASA Gandhidham
+  </div>
+</div>
+<!-- === FOOTER CREDIT SECTION END === -->
+
+<!-- ===== GALLERY LIGHTBOX ===== -->
+<div class="lightbox-overlay" id="lightboxOverlay" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img class="lightbox-img" id="lightboxImg" src="" alt="Gallery image">
+</div>
+
+<!-- ===== LOGIN MODAL ===== -->
+<div class="modal-overlay" id="loginModal">
+  <div class="modal">
+    <h3>🔐 Admin Login</h3>
+    <p>Enter your admin credentials to access the editor panel.</p>
+    <div class="form-group">
+      <label>Admin ID</label>
+      <input type="text" id="loginId" placeholder="Enter admin ID" autocomplete="username">
+    </div>
+    <div class="form-group">
+      <label>Password</label>
+      <input type="password" id="loginPass" placeholder="Enter password" autocomplete="current-password">
+    </div>
+    <div class="error-msg" id="loginError">Incorrect ID or password. Please try again.</div>
+    <div class="modal-btns">
+      <button class="btn-primary" onclick="doLogin()">Login</button>
+      <button class="btn-cancel" onclick="closeLoginModal()">Cancel</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===== WHATSAPP FLOATING BUTTON ===== -->
+<div class="wa-float" id="waFloat">
+  <span class="wa-float-label">Chat with us</span>
+  <a id="waLink" href="#" target="_blank" rel="noopener" title="Chat on WhatsApp">💬</a>
+</div>
+
+<!-- ===== TOAST ===== -->
+<div class="toast" id="toast"></div>
+
+<!-- ===================================================
+     JAVASCRIPT
+     =================================================== -->
+<script>
+// ===================== ADMIN CREDENTIALS =====================
+const ADMIN_ID   = "nts2026admin";
+const ADMIN_PASS = "ICAI@Gandhidham2026";
+
+// ===================== DEFAULT DATA =====================
+const DEFAULT_DATA = {
+  instituteName:  "The Institute of Chartered Accountants of India",
+  instituteSub:   "(Set up by an Act of Parliament)",
+  organiserName:  "Board of Studies – Operations",
+  hosterName:     "Gandhidham Branch (WICASA)",
+  eventDate:      "24th May, 2026 (Sunday) | 9:30 AM Onwards",
+  venue:          "ICAI Gandhidham (Branch Premises)",
+  regDate:        "22nd May, 2026",
+
+  // Countdown
+  countdownDatetime: "2026-05-24T09:30",
+  countdownLabel:    "National Talent Search 2026",
+
+  // Contacts
+  contact1Name:  "", contact1Phone: "",
+  contact2Name:  "", contact2Phone: "",
+  waNumber:      "",
+
+  // Registration
+  regLink: "",
+  qrImage: "",
+
+  // Schedule
+  scheduleFlyerImage: "",
+
+  // Results array
+  results: [],
+
+  // Gallery images array (base64 strings)
+  galleryImages: [],
+
+  // Branding sections array
+  brandingSections: [],
+  committeePhoto: "",
+  committeePhotoLabel: "Our Committee",
+
+  // Activities (full detail)
+  activities: [
+    {
+      id: "chess", name: "Chess", icon: "♟️",
+      tagline: "Think. Strategize. Win.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Student must be registered with ICAI.", "Each participant can participate in only one activity.", "No age restriction; valid ICAI student ID mandatory."] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Standard FIDE rules of chess will apply.", "Time control: 15 minutes per player per game.", "Touch-move rule will be strictly followed.", "Mobile phones must be kept on silent/off during games.", "Decision of the referee shall be final."] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize", "2nd Prize – Silver Medal + Certificate", "3rd Prize – Bronze Medal + Certificate", "Top winners will represent branch at national level."] }
+      ]
+    },
+    {
+      id: "music", name: "Instrumental Music", icon: "🎵",
+      tagline: "Let your instrument speak.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Solo performances only.", "Participants must bring their own instrument.", "Valid ICAI student ID required."] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Performance time: 3 to 5 minutes per participant.", "Any musical instrument is allowed.", "Background music/karaoke tracks are not permitted.", "Marks deducted for exceeding or falling short of time limit.", "Setup time of 2 minutes before performance begins."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Technical skill – 30 marks", "Rhythm & Melody – 25 marks", "Stage presence – 20 marks", "Overall impression – 25 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize", "2nd Prize – Silver Medal + Certificate", "3rd Prize – Bronze Medal + Certificate"] }
+      ]
+    },
+    {
+      id: "debate", name: "Debate", icon: "🗣️",
+      tagline: "Argue boldly. Think critically.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA students registered with ICAI.", "Teams of 2 participants (1 for, 1 against).", "Inter-team registration; both members must be from same branch.", "Valid ICAI student ID required for both members."] },
+        { title: "Topics", icon: "📝", points: ["Topics will be announced on the day of the event.", "Preparation time: 10 minutes after topic announcement.", "Each speaker must speak on their assigned side only.", "Topic switching mid-debate is not allowed."] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Each speaker gets 3 minutes to present their argument.", "1-minute rebuttal for each team after main arguments.", "Moderator/judge can intervene if rules are violated.", "Use of abusive or disrespectful language will lead to disqualification.", "Mobile phones strictly prohibited during the debate."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Content and argument strength – 35 marks", "Delivery and clarity – 25 marks", "Rebuttal effectiveness – 20 marks", "Language and vocabulary – 20 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medals (team) + Certificate + Cash Prize", "2nd Prize – Silver Medals (team) + Certificate", "Best Speaker Award – individual recognition"] }
+      ]
+    },
+    {
+      id: "poetry", name: "Poetry", icon: "🪶",
+      tagline: "Paint with words.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Solo participation only.", "Poem can be self-composed or chosen from existing works.", "Valid ICAI student ID required."] },
+        { title: "Topics", icon: "📝", points: ["Patriotism / National Pride", "CA Profession & Ethics", "Nature and Environment", "Dreams and Aspirations", "Free topic (self-composed poems only)"] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Recitation time: 3 to 4 minutes.", "Self-composed poems will receive additional 5 bonus marks.", "Language: Hindi, English, or Gujarati.", "Reading from paper is allowed; memorization is preferred.", "Dramatic expressions and voice modulation are encouraged."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Content and depth – 30 marks", "Pronunciation and fluency – 25 marks", "Presentation and expression – 25 marks", "Originality (for self-composed) – 20 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize", "2nd Prize – Silver Medal + Certificate", "3rd Prize – Bronze Medal + Certificate"] }
+      ]
+    },
+    {
+      id: "pitchdeck", name: "Pitch Deck", icon: "📊",
+      tagline: "Present your vision. Convince the world.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to CA Intermediate & Final students.", "Teams of 2–3 members allowed; solo also permitted.", "All members must be registered ICAI students.", "Same team cannot participate in multiple business categories."] },
+        { title: "Topics", icon: "📝", points: ["Startup idea in any sector (FinTech, AgriTech, HealthTech, EdTech, etc.)", "Social enterprise solving a real-world problem", "Sustainable business model with financial projections", "Technology-driven solution for CA profession"] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Maximum 10 slides (excluding title and thank-you slides).", "Presentation time: 5 minutes + 2 minutes Q&A.", "Slides must be submitted by email at least 24 hours prior to event.", "No live demos allowed; recorded videos may be embedded.", "Judges' panel includes industry experts and senior CAs."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Problem statement clarity – 20 marks", "Solution and innovation – 30 marks", "Market opportunity and feasibility – 20 marks", "Financial projections – 15 marks", "Presentation quality – 15 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize + Mentorship opportunity", "2nd Prize – Silver Medal + Certificate + Cash Prize", "3rd Prize – Bronze Medal + Certificate"] }
+      ]
+    },
+    {
+      id: "sketching", name: "Sketching", icon: "✏️",
+      tagline: "Draw your imagination.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Solo participation only.", "Participants must bring their own art materials.", "Valid ICAI student ID required."] },
+        { title: "Topics", icon: "📝", points: ["Theme will be announced at the venue on the day of the event.", "Participants will be judged on interpretation of the given theme.", "Both pencil sketch and color sketch are accepted."] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Time allotted: 90 minutes from commencement.", "Drawing sheet (A3 size) will be provided by organizers.", "Participants must bring their own pencils, colors, and tools.", "No pre-drawn templates or tracing allowed.", "Digital artwork is not permitted."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Creativity and originality – 30 marks", "Relevance to theme – 25 marks", "Technical skill and detailing – 25 marks", "Composition and use of space – 20 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize", "2nd Prize – Silver Medal + Certificate", "3rd Prize – Bronze Medal + Certificate"] }
+      ]
+    },
+    {
+      id: "elocution", name: "Elocution", icon: "🎤",
+      tagline: "Speak with power and purpose.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Solo participation only.", "Valid ICAI student ID required.", "Each participant may participate in only one event."] },
+        { title: "Topics", icon: "📝", points: ["The Role of CA in Building a Stronger India", "GST – Revolution or Evolution?", "Artificial Intelligence and the Future of Chartered Accountancy", "Ethics in the CA Profession: A Non-Negotiable Value", "Start-ups and the Opportunity for Young CAs"] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Time limit: 3 to 5 minutes per participant.", "Language: English or Hindi (no mixing of languages).", "A bell will ring at 3 minutes (warning) and 5 minutes (time up).", "Notes or reading from paper are not allowed.", "Participants must choose one topic and register in advance."] },
+        { title: "Judging Criteria", icon: "⚖️", points: ["Content and relevance – 30 marks", "Fluency and language accuracy – 25 marks", "Confidence and stage presence – 25 marks", "Time management – 10 marks", "Overall impact – 10 marks"] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medal + Certificate + Cash Prize", "2nd Prize – Silver Medal + Certificate", "3rd Prize – Bronze Medal + Certificate", "Top 3 qualify for regional/national round"] }
+      ]
+    },
+    {
+      id: "quiz", name: "Quiz", icon: "❓",
+      tagline: "Test your knowledge. Dominate the stage.",
+      sections: [
+        { title: "Eligibility Criteria", icon: "🎓", points: ["Open to all CA Foundation, Intermediate & Final students.", "Teams of 2 participants per team.", "Both members must hold valid ICAI student ID.", "Each student can participate in only one team."] },
+        { title: "Topics", icon: "📝", points: ["Accounting Standards & Ind AS", "Direct & Indirect Taxation (GST, Income Tax)", "Company Law & Corporate Governance", "Economics & Finance (general)", "Current Affairs related to Finance & Business", "ICAI history and institutional knowledge"] },
+        { title: "Rules & Instructions", icon: "📋", points: ["Quiz will have multiple rounds: Written Elimination, Audio-Visual, Rapid Fire, Buzzer.", "Top 6 teams from written round qualify for stage rounds.", "Negative marking: -1 for wrong answer in buzzer round only.", "Judges' decision is final and binding.", "Mobile phones strictly prohibited during the quiz.", "Teams must be seated 10 minutes before the start."] },
+        { title: "Winner Count", icon: "🏆", points: ["1st Prize – Gold Medals (team) + Certificate + Cash Prize", "2nd Prize – Silver Medals (team) + Certificate + Cash Prize", "3rd Prize – Bronze Medals (team) + Certificate", "Best Team Trophy presented to winners"] }
+      ]
+    }
+  ]
+};
+
+// ===================== STATE =====================
+let appData   = JSON.parse(localStorage.getItem('nts2026_data') || 'null') || JSON.parse(JSON.stringify(DEFAULT_DATA));
+let isLoggedIn = false;
+let countdownInterval = null;
+let currentTab = 'home';
+
+// ===================== INIT =====================
+function init() {
+  renderHeader();
+  renderBanner();
+  renderActivitiesGrid();
+  renderRegistrationSection();
+  renderScheduleTab();
+  renderResultsTab();
+  renderGalleryTab();
+  renderBrandingTab();
+  renderContactsSection();
+  renderWAButton();
+  startCountdown();
+}
+
+// ===================== HEADER & BANNER =====================
+function renderHeader() {
+  document.getElementById('instituteName').textContent = appData.instituteName;
+  document.getElementById('instituteSub').textContent  = appData.instituteSub;
+  document.getElementById('organiserName').textContent = appData.organiserName;
+  document.getElementById('hosterName').textContent    = appData.hosterName;
+}
+
+function renderBanner() {
+  document.getElementById('infoBanner').innerHTML =
+    `<span>📅 ${appData.eventDate}</span><span>📍 ${appData.venue}</span><span>⏰ Last Date: ${appData.regDate}</span>`;
+}
+
+// ===================== TAB NAVIGATION =====================
+function showTab(tabId, el) {
+  // Hide all pages except admin
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('adminPanelWrap').style.display = 'none';
+  document.getElementById('detailPage').classList.remove('active');
+
+  const target = document.getElementById('page-' + tabId);
+  if (target) target.classList.add('active');
+  currentTab = tabId;
+
+  // Update nav active class
+  document.querySelectorAll('.nav-bar a').forEach(a => a.classList.remove('active'));
+  const navEl = el || document.getElementById('nav-' + tabId);
+  if (navEl) navEl.classList.add('active');
+
+  window.scrollTo(0, 0);
+}
+
+// ===================== COUNTDOWN TIMER =====================
+function startCountdown() {
+  if (countdownInterval) clearInterval(countdownInterval);
+  const dt = appData.countdownDatetime;
+  if (!dt) return;
+  const label = appData.countdownLabel || 'Event';
+  document.getElementById('countdownEventTitle').textContent = label;
+
+  function tick() {
+    const now  = new Date().getTime();
+    const end  = new Date(dt).getTime();
+    const diff = end - now;
+    if (diff <= 0) {
+      document.getElementById('countdownDisplay').innerHTML =
+        `<div class="countdown-started">🎉 Event Has Started!</div>`;
+      clearInterval(countdownInterval);
+      return;
+    }
+    const days  = Math.floor(diff / 86400000);
+    const hours = Math.floor((diff % 86400000) / 3600000);
+    const mins  = Math.floor((diff % 3600000) / 60000);
+    const secs  = Math.floor((diff % 60000) / 1000);
+    document.getElementById('cd-days').textContent  = String(days).padStart(2,'0');
+    document.getElementById('cd-hours').textContent = String(hours).padStart(2,'0');
+    document.getElementById('cd-mins').textContent  = String(mins).padStart(2,'0');
+    document.getElementById('cd-secs').textContent  = String(secs).padStart(2,'0');
+  }
+  tick();
+  countdownInterval = setInterval(tick, 1000);
+}
+
+// ===================== REGISTRATION SECTION =====================
+function renderRegistrationSection() {
+  const hasQR  = !!appData.qrImage;
+  const hasLink = !!appData.regLink;
+  const show   = hasQR || hasLink;
+  const sec    = document.getElementById('regSection');
+  sec.style.display = show ? '' : 'none';
+
+  // QR code
+  const qrWrap = document.getElementById('qrWrap');
+  if (hasQR) {
+    document.getElementById('qrImage').src = appData.qrImage;
+    qrWrap.style.display = '';
+  } else {
+    qrWrap.style.display = 'none';
+  }
+
+  // Register link button
+  const btn = document.getElementById('regLink');
+  if (hasLink) {
+    btn.href = appData.regLink;
+    btn.style.display = '';
+  } else {
+    btn.style.display = 'none';
+  }
+}
+
+// ===================== SCHEDULE TAB =====================
+function renderScheduleTab() {
+  const hasFlyer = !!appData.scheduleFlyerImage;
+  document.getElementById('scheduleFlyerWrap').style.display = hasFlyer ? '' : 'none';
+  document.getElementById('schedulePlaceholder').style.display = hasFlyer ? 'none' : '';
+  if (hasFlyer) {
+    document.getElementById('scheduleFlyerImg').src = appData.scheduleFlyerImage;
+  }
+}
+
+// ===================== RESULTS TAB =====================
+function renderResultsTab() {
+  const results = appData.results || [];
+  const grid    = document.getElementById('resultsGrid');
+  const ph      = document.getElementById('resultsPlaceholder');
+
+  if (!results.length) {
+    grid.innerHTML = '';
+    ph.style.display = '';
+    return;
+  }
+  ph.style.display = 'none';
+
+  const trophyMap = {
+    'Winner':     '🥇',
+    'Runner Up':  '🥈',
+    '1st':        '🥇',
+    '2nd':        '🥈',
+    '3rd':        '🥉'
+  };
+
+  grid.innerHTML = results.map(r => {
+    const trophy = trophyMap[r.position] || '🏆';
+    const isTeam  = r.type === 'team';
+
+    let photoHtml = '';
+    if (isTeam && r.photos && r.photos.length) {
+      photoHtml = `<div class="result-card-photo-team">
+        ${r.photos.map(ph => `<img src="${ph}" alt="member photo">`).join('')}
+      </div>`;
+    } else if (!isTeam && r.photos && r.photos[0]) {
+      photoHtml = `<img class="result-card-photo" src="${r.photos[0]}" alt="winner photo">`;
+    }
+
+    const membersHtml = r.members && r.members.length
+      ? `<div class="result-members">${r.members.join(' &middot; ')}</div>`
+      : '';
+
+    return `<div class="result-card">
+      <div class="result-card-top">
+        <div class="result-trophy">${trophy}</div>
+        <div class="result-activity">${r.activity || 'Activity'}</div>
+        <div class="result-position-badge">${trophy} ${r.position}</div>
+        ${photoHtml}
+      </div>
+      <div class="result-card-body">
+        <div class="result-name">${r.name || ''}</div>
+        ${membersHtml}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===================== GALLERY TAB =====================
+function renderGalleryTab() {
+  const imgs = appData.galleryImages || [];
+  const grid = document.getElementById('galleryGrid');
+  const ph   = document.getElementById('galleryPlaceholder');
+
+  if (!imgs.length) {
+    grid.innerHTML = '';
+    ph.style.display = '';
+    return;
+  }
+  ph.style.display = 'none';
+  grid.innerHTML = imgs.map((src, i) =>
+    `<div class="gallery-img-wrap" onclick="openLightbox('${src}')">
+       <img src="${src}" alt="Gallery ${i+1}" loading="lazy">
+     </div>`
+  ).join('');
+}
+
+// Gallery lightbox
+function openLightbox(src) {
+  document.getElementById('lightboxImg').src = src;
+  document.getElementById('lightboxOverlay').classList.add('open');
+}
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightboxOverlay') || e.target.classList.contains('lightbox-close')) {
+    document.getElementById('lightboxOverlay').classList.remove('open');
+  }
+}
+
+// ===================== BRANDING TAB =====================
+function renderBrandingTab() {
+  const sections = appData.brandingSections || [];
+  const hasCommittee = !!appData.committeePhoto;
+  const container    = document.getElementById('brandingSections');
+  const ph           = document.getElementById('brandingPlaceholder');
+  const cwrap        = document.getElementById('committeePhotoWrap');
+
+  // Committee photo
+  if (hasCommittee) {
+    document.getElementById('committeePhotoImg').src = appData.committeePhoto;
+    document.getElementById('committeePhotoLabel').textContent = appData.committeePhotoLabel || 'Our Committee';
+    cwrap.style.display = '';
+  } else {
+    cwrap.style.display = 'none';
+  }
+
+  if (!sections.length && !hasCommittee) {
+    container.innerHTML = '';
+    ph.style.display = '';
+    return;
+  }
+  ph.style.display = 'none';
+
+  container.innerHTML = sections.map(s => {
+    const hasImg = !!s.image;
+    return `<div class="branding-section">
+      <div class="branding-inner" style="${hasImg ? '' : 'grid-template-columns:1fr;'}">
+        <div class="branding-text-col" ${!hasImg ? '' : ''}>
+          <div class="branding-section-title">${s.title || 'Message'}</div>
+          <div class="branding-message">${(s.content || '').replace(/</g,'&lt;')}</div>
+        </div>
+        ${hasImg ? `<div class="branding-img-col"><img src="${s.image}" alt="${s.title}"></div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ===================== CONTACTS SECTION =====================
+function renderContactsSection() {
+  const c1 = appData.contact1Name && appData.contact1Phone;
+  const c2 = appData.contact2Name && appData.contact2Phone;
+  const wrap = document.getElementById('contactsGlobal');
+
+  if (!c1 && !c2) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+
+  let html = '<div class="contacts-title">📞 Important Contacts</div>';
+  if (c1) html += buildContactCard(appData.contact1Name, appData.contact1Phone);
+  if (c2) html += buildContactCard(appData.contact2Name, appData.contact2Phone);
+  document.getElementById('contactsInner').innerHTML = html;
+}
+
+function buildContactCard(name, phone) {
+  const initial = name.charAt(0).toUpperCase();
+  return `<div class="contact-card">
+    <div class="contact-avatar">${initial}</div>
+    <div>
+      <div class="contact-name">${name}</div>
+      <div class="contact-phone"><a href="tel:${phone.replace(/\s/g,'')}">${phone}</a></div>
+    </div>
+  </div>`;
+}
+
+// ===================== WHATSAPP BUTTON =====================
+function renderWAButton() {
+  const num  = appData.waNumber || '';
+  const wrap = document.getElementById('waFloat');
+  if (!num) { wrap.style.display = 'none'; return; }
+  wrap.style.display = '';
+  document.getElementById('waLink').href = `https://wa.me/${num}`;
+}
+
+// ===================== ACTIVITIES GRID =====================
+function renderActivitiesGrid() {
+  const grid = document.getElementById('activitiesGrid');
+  grid.innerHTML = appData.activities.map(a => `
+    <div class="activity-card" onclick="openActivity('${a.id}')">
+      <span class="activity-icon">${a.icon}</span>
+      <div class="activity-name">${a.name}</div>
+      <div class="activity-tagline">${a.tagline || ''}</div>
+      <div class="activity-arrow">View Details →</div>
+    </div>
+  `).join('');
+}
+
+// ===================== ACTIVITY DETAIL =====================
+function openActivity(id) {
+  const a = appData.activities.find(x => x.id === id);
+  if (!a) return;
+  document.getElementById('detailIcon').textContent  = a.icon;
+  document.getElementById('detailTitle').textContent = a.name;
+  document.getElementById('accordionContainer').innerHTML = a.sections.map((s, i) => `
+    <div class="acc-item" id="acc-${id}-${i}">
+      <div class="acc-header" onclick="toggleAcc('acc-${id}-${i}')">
+        <div class="acc-header-left">
+          <div class="acc-icon-circle">${s.icon || '📌'}</div>
+          <div class="acc-title">${s.title}</div>
+        </div>
+        <div class="acc-arrow">▼</div>
+      </div>
+      <div class="acc-body">
+        <ul>${s.points.map(p => `<li>${p}</li>`).join('')}</ul>
+      </div>
+    </div>
+  `).join('');
+
+  // Show detail page within Home tab context
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('detailPage').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function closeDetail() {
+  document.getElementById('detailPage').classList.remove('active');
+  document.getElementById('page-home').classList.add('active');
+  window.scrollTo(0, 0);
+}
+
+function toggleAcc(id) {
+  document.getElementById(id).classList.toggle('open');
+}
+
+// ===================== ADMIN LOGIN =====================
+function openLoginModal() {
+  document.getElementById('loginModal').classList.add('open');
+  document.getElementById('loginId').value = '';
+  document.getElementById('loginPass').value = '';
+  document.getElementById('loginError').style.display = 'none';
+  setTimeout(() => document.getElementById('loginId').focus(), 100);
+}
+function closeLoginModal() {
+  document.getElementById('loginModal').classList.remove('open');
+}
+function doLogin() {
+  const id   = document.getElementById('loginId').value.trim();
+  const pass = document.getElementById('loginPass').value;
+  if (id === ADMIN_ID && pass === ADMIN_PASS) {
+    isLoggedIn = true;
+    closeLoginModal();
+    document.getElementById('loginLogoutBtn').textContent = '🔓 Admin Mode';
+    document.getElementById('loginLogoutBtn').style.background = '#22c55e';
+    document.getElementById('loginLogoutBtn').onclick = adminLogout;
+    document.getElementById('adminNavLink').style.display = '';
+    showToast('✅ Logged in! Opening Admin Panel…');
+    setTimeout(() => showAdminPanel(null), 400);
+  } else {
+    document.getElementById('loginError').style.display = 'block';
+  }
+}
+document.getElementById('loginPass').addEventListener('keydown', e => { if (e.key === 'Enter') doLogin(); });
+document.getElementById('loginModal').addEventListener('click', function(e) { if (e.target === this) closeLoginModal(); });
+
+function adminLogout() {
+  isLoggedIn = false;
+  const btn = document.getElementById('loginLogoutBtn');
+  btn.textContent = '🔐 Admin Login';
+  btn.style.background = '';
+  btn.onclick = openLoginModal;
+  document.getElementById('adminNavLink').style.display = 'none';
+  document.getElementById('adminPanelWrap').style.display = 'none';
+  showTab('home', document.getElementById('nav-home'));
+  showToast('Logged out.');
+}
+
+// ===================== ADMIN PANEL =====================
+function showAdminPanel(e) {
+  if (e) e.preventDefault();
+  if (!isLoggedIn) { openLoginModal(); return; }
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('adminPanelWrap').style.display = 'block';
+  document.querySelectorAll('.nav-bar a').forEach(a => a.classList.remove('active'));
+  document.getElementById('adminNavLink').classList.add('active');
+  renderAdminPanel();
+  window.scrollTo(0, 0);
+}
+
+function switchAdminTab(tabId, btn) {
+  document.querySelectorAll('.admin-tab').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.admin-content').forEach(c => c.classList.remove('active'));
+  btn.classList.add('active');
+  document.getElementById(tabId).classList.add('active');
+}
+
+function renderAdminPanel() {
+  // Site
+  document.getElementById('adm-institute').value = appData.instituteName;
+  document.getElementById('adm-sub').value        = appData.instituteSub;
+  document.getElementById('adm-organiser').value  = appData.organiserName;
+  document.getElementById('adm-hoster').value     = appData.hosterName;
+  document.getElementById('adm-date').value       = appData.eventDate;
+  document.getElementById('adm-venue').value      = appData.venue;
+  document.getElementById('adm-regdate').value    = appData.regDate;
+
+  // Countdown
+  document.getElementById('adm-countdown-dt').value    = appData.countdownDatetime || '';
+  document.getElementById('adm-countdown-label').value = appData.countdownLabel    || '';
+
+  // Contacts
+  document.getElementById('adm-c1name').value  = appData.contact1Name  || '';
+  document.getElementById('adm-c1phone').value = appData.contact1Phone || '';
+  document.getElementById('adm-c2name').value  = appData.contact2Name  || '';
+  document.getElementById('adm-c2phone').value = appData.contact2Phone || '';
+  document.getElementById('adm-waNumber').value = appData.waNumber     || '';
+
+  // Registration
+  document.getElementById('adm-regLink').value = appData.regLink || '';
+  const qrPrev = document.getElementById('qrAdminPreview');
+  if (appData.qrImage) {
+    document.getElementById('qrAdminPreviewImg').src = appData.qrImage;
+    qrPrev.style.display = '';
+  } else {
+    qrPrev.style.display = 'none';
+  }
+
+  // Schedule flyer
+  const sfPrev = document.getElementById('scheduleFlyerAdminPreview');
+  if (appData.scheduleFlyerImage) {
+    document.getElementById('scheduleFlyerAdminImg').src = appData.scheduleFlyerImage;
+    sfPrev.style.display = '';
+  } else {
+    sfPrev.style.display = 'none';
+  }
+
+  // Results
+  renderResultsEditor();
+
+  // Branding
+  renderBrandingEditor();
+
+  // Commit photo
+  if (appData.committeePhoto) {
+    document.getElementById('committeePhotoAdminImg').src = appData.committeePhoto;
+    document.getElementById('committeePhotoAdminPreview').style.display = '';
+  } else {
+    document.getElementById('committeePhotoAdminPreview').style.display = 'none';
+  }
+  document.getElementById('adm-committeeLabel').value = appData.committeePhotoLabel || '';
+
+  // Gallery
+  renderGalleryAdminThumbs();
+
+  // Activities
+  renderActivityEditors();
+}
+
+// ===================== SAVE FUNCTIONS =====================
+function saveSiteSettings() {
+  appData.instituteName = document.getElementById('adm-institute').value;
+  appData.instituteSub  = document.getElementById('adm-sub').value;
+  appData.organiserName = document.getElementById('adm-organiser').value;
+  appData.hosterName    = document.getElementById('adm-hoster').value;
+  appData.eventDate     = document.getElementById('adm-date').value;
+  appData.venue         = document.getElementById('adm-venue').value;
+  appData.regDate       = document.getElementById('adm-regdate').value;
+  saveData();
+  renderHeader();
+  renderBanner();
+  showToast('✅ Site settings saved!');
+}
+
+function saveCountdown() {
+  appData.countdownDatetime = document.getElementById('adm-countdown-dt').value;
+  appData.countdownLabel    = document.getElementById('adm-countdown-label').value;
+  saveData();
+  startCountdown();
+  showToast('✅ Countdown saved!');
+}
+
+function saveContacts() {
+  appData.contact1Name  = document.getElementById('adm-c1name').value.trim();
+  appData.contact1Phone = document.getElementById('adm-c1phone').value.trim();
+  appData.contact2Name  = document.getElementById('adm-c2name').value.trim();
+  appData.contact2Phone = document.getElementById('adm-c2phone').value.trim();
+  appData.waNumber      = document.getElementById('adm-waNumber').value.trim();
+  saveData();
+  renderContactsSection();
+  renderWAButton();
+  showToast('✅ Contacts saved!');
+}
+
+function saveRegistration() {
+  appData.regLink = document.getElementById('adm-regLink').value.trim();
+  saveData();
+  renderRegistrationSection();
+  showToast('✅ Registration settings saved!');
+}
+
+// ===================== IMAGE UPLOAD HANDLERS =====================
+function handleLogoUpload(imgId, textId, input) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById(imgId).src = e.target.result;
+    document.getElementById(imgId).style.display = 'block';
+    document.getElementById(textId).style.display = 'none';
+    try { localStorage.setItem('nts2026_' + imgId, e.target.result); } catch(err) {}
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function handleQRUpload(input) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    appData.qrImage = e.target.result;
+    saveData();
+    renderRegistrationSection();
+    document.getElementById('qrAdminPreviewImg').src = e.target.result;
+    document.getElementById('qrAdminPreview').style.display = '';
+    showToast('✅ QR image uploaded!');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function removeQR() {
+  appData.qrImage = '';
+  saveData();
+  document.getElementById('qrAdminPreview').style.display = 'none';
+  renderRegistrationSection();
+  showToast('QR removed.');
+}
+
+function handleScheduleUpload(input) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    appData.scheduleFlyerImage = e.target.result;
+    saveData();
+    renderScheduleTab();
+    document.getElementById('scheduleFlyerAdminImg').src = e.target.result;
+    document.getElementById('scheduleFlyerAdminPreview').style.display = '';
+    showToast('✅ Schedule flyer uploaded!');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function removeScheduleFlyer() {
+  appData.scheduleFlyerImage = '';
+  saveData();
+  document.getElementById('scheduleFlyerAdminPreview').style.display = 'none';
+  renderScheduleTab();
+  showToast('Schedule flyer removed.');
+}
+
+function handleCommitteePhoto(input) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('committeePhotoAdminImg').src = e.target.result;
+    document.getElementById('committeePhotoAdminPreview').style.display = '';
+    // Saved on "Save Committee Photo" click
+    document.getElementById('committeePhotoAdminPreview').dataset.pending = e.target.result;
+    showToast('Photo loaded. Click "Save Committee Photo".');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function saveCommitteePhoto() {
+  const pending = document.getElementById('committeePhotoAdminPreview').dataset.pending;
+  if (pending) appData.committeePhoto = pending;
+  appData.committeePhotoLabel = document.getElementById('adm-committeeLabel').value || 'Our Committee';
+  saveData();
+  renderBrandingTab();
+  showToast('✅ Committee photo saved!');
+}
+
+function removeCommitteePhoto() {
+  appData.committeePhoto = '';
+  delete document.getElementById('committeePhotoAdminPreview').dataset.pending;
+  document.getElementById('committeePhotoAdminPreview').style.display = 'none';
+  saveData();
+  renderBrandingTab();
+  showToast('Committee photo removed.');
+}
+
+// ===================== GALLERY ADMIN =====================
+function handleGalleryUpload(input) {
+  if (!input.files.length) return;
+  const files = Array.from(input.files);
+  let loaded = 0;
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      appData.galleryImages.push(e.target.result);
+      loaded++;
+      if (loaded === files.length) {
+        saveData();
+        renderGalleryTab();
+        renderGalleryAdminThumbs();
+        showToast(`✅ ${files.length} photo(s) added!`);
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+  input.value = '';
+}
+
+function removeGalleryImage(index) {
+  appData.galleryImages.splice(index, 1);
+  saveData();
+  renderGalleryTab();
+  renderGalleryAdminThumbs();
+  showToast('Photo removed.');
+}
+
+function renderGalleryAdminThumbs() {
+  const imgs  = appData.galleryImages || [];
+  const wrap  = document.getElementById('galleryAdminThumbs');
+  wrap.innerHTML = imgs.map((src, i) => `
+    <div class="gallery-admin-thumb">
+      <img src="${src}" alt="Gallery ${i+1}">
+      <button class="gallery-thumb-remove" onclick="removeGalleryImage(${i})" title="Remove">✕</button>
+    </div>
+  `).join('');
+}
+
+// ===================== RESULTS ADMIN =====================
+function renderResultsEditor() {
+  const list    = document.getElementById('resultsEditorList');
+  const results = appData.results || [];
+
+  list.innerHTML = results.map((r, ri) => {
+    const isTeam   = r.type === 'team';
+    const membersHtml = (r.members || []).map((m, mi) => `
+      <div class="member-row" id="mr-${ri}-${mi}">
+        <input class="admin-input" value="${m.replace(/"/g,'&quot;')}" placeholder="Member name" onchange="appData.results[${ri}].members[${mi}]=this.value;saveData();">
+        <button class="danger-btn" style="padding:6px 10px;" onclick="removeResultMember(${ri},${mi})">✕</button>
+      </div>
+    `).join('');
+
+    const photosHtml = (r.photos || []).map((ph, phi) => `
+      <div class="gallery-admin-thumb" style="margin:4px;">
+        <img src="${ph}">
+        <button class="gallery-thumb-remove" onclick="removeResultPhoto(${ri},${phi})">✕</button>
+      </div>
+    `).join('');
+
+    return `<div class="result-editor" id="re-${ri}">
+      <div class="result-editor-header">
+        <b style="color:var(--blue-dark);">Result #${ri+1}</b>
+        <button class="danger-btn" onclick="removeResultEntry(${ri})">✕ Remove</button>
+      </div>
+      <div class="admin-grid-3" style="margin-bottom:12px;">
+        <div>
+          <label class="admin-input-label">Activity Name</label>
+          <input class="admin-input" value="${r.activity||''}" placeholder="e.g. Chess" onchange="appData.results[${ri}].activity=this.value;saveData();renderResultsTab();">
+        </div>
+        <div>
+          <label class="admin-input-label">Type</label>
+          <select class="admin-input" onchange="appData.results[${ri}].type=this.value;saveData();renderResultsEditor();renderResultsTab();">
+            <option value="individual" ${r.type==='individual'?'selected':''}>Individual</option>
+            <option value="team" ${r.type==='team'?'selected':''}>Team</option>
+          </select>
+        </div>
+        <div>
+          <label class="admin-input-label">Position</label>
+          <select class="admin-input" onchange="appData.results[${ri}].position=this.value;saveData();renderResultsTab();">
+            <option value="Winner" ${r.position==='Winner'?'selected':''}>Winner</option>
+            <option value="Runner Up" ${r.position==='Runner Up'?'selected':''}>Runner Up</option>
+            <option value="1st" ${r.position==='1st'?'selected':''}>1st</option>
+            <option value="2nd" ${r.position==='2nd'?'selected':''}>2nd</option>
+            <option value="3rd" ${r.position==='3rd'?'selected':''}>3rd</option>
+          </select>
+        </div>
+      </div>
+      <div style="margin-bottom:12px;">
+        <label class="admin-input-label">${isTeam ? 'Team Name' : 'Winner Name'}</label>
+        <input class="admin-input" value="${r.name||''}" placeholder="Name" onchange="appData.results[${ri}].name=this.value;saveData();renderResultsTab();">
+      </div>
+      ${isTeam ? `<div style="margin-bottom:12px;">
+        <label class="admin-input-label">Team Members</label>
+        <div id="members-${ri}">${membersHtml}</div>
+        <button class="add-btn" style="margin-top:6px;" onclick="addResultMember(${ri})">＋ Add Member</button>
+      </div>` : ''}
+      <div>
+        <label class="admin-input-label">Photo(s) Upload</label>
+        <div class="upload-area" onclick="document.getElementById('resultPhoto-${ri}').click()">
+          <label>📤 Upload winner photo${isTeam?' (team/members)':''}</label>
+          <input type="file" id="resultPhoto-${ri}" accept="image/*" ${isTeam?'multiple':''} onchange="handleResultPhotoUpload(this,${ri})">
+        </div>
+        <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px;">${photosHtml}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function addResultEntry() {
+  if (!appData.results) appData.results = [];
+  appData.results.push({ activity: '', type: 'individual', position: 'Winner', name: '', members: [], photos: [] });
+  saveData();
+  renderResultsEditor();
+  showToast('✅ Result entry added!');
+}
+
+function removeResultEntry(ri) {
+  if (!confirm('Remove this result?')) return;
+  appData.results.splice(ri, 1);
+  saveData();
+  renderResultsEditor();
+  renderResultsTab();
+  showToast('Result removed.');
+}
+
+function addResultMember(ri) {
+  if (!appData.results[ri].members) appData.results[ri].members = [];
+  appData.results[ri].members.push('');
+  saveData();
+  renderResultsEditor();
+}
+
+function removeResultMember(ri, mi) {
+  appData.results[ri].members.splice(mi, 1);
+  saveData();
+  renderResultsEditor();
+  renderResultsTab();
+}
+
+function handleResultPhotoUpload(input, ri) {
+  if (!input.files.length) return;
+  const files = Array.from(input.files);
+  let done = 0;
+  if (!appData.results[ri].photos) appData.results[ri].photos = [];
+  files.forEach(file => {
+    const reader = new FileReader();
+    reader.onload = e => {
+      appData.results[ri].photos.push(e.target.result);
+      done++;
+      if (done === files.length) {
+        saveData();
+        renderResultsEditor();
+        renderResultsTab();
+        showToast('✅ Photo(s) uploaded!');
+      }
+    };
+    reader.readAsDataURL(file);
+  });
+  input.value = '';
+}
+
+function removeResultPhoto(ri, phi) {
+  appData.results[ri].photos.splice(phi, 1);
+  saveData();
+  renderResultsEditor();
+  renderResultsTab();
+  showToast('Photo removed.');
+}
+
+// ===================== BRANDING ADMIN =====================
+function renderBrandingEditor() {
+  const list     = document.getElementById('brandingEditorList');
+  const sections = appData.brandingSections || [];
+
+  list.innerHTML = sections.map((s, si) => {
+    const hasImg = !!s.image;
+    return `<div class="branding-editor" id="be-${si}">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:8px;">
+        <b style="color:var(--blue-dark);">Section ${si+1}</b>
+        <button class="danger-btn" onclick="removeBrandingSection(${si})">✕ Remove</button>
+      </div>
+      <div style="margin-bottom:10px;">
+        <label class="admin-input-label">Section Title (e.g. Chairman Message)</label>
+        <input class="admin-input" value="${s.title||''}" placeholder="Chairman Message" onchange="appData.brandingSections[${si}].title=this.value;saveData();">
+      </div>
+      <div style="margin-bottom:10px;">
+        <label class="admin-input-label">Message / Content</label>
+        <textarea class="admin-textarea" placeholder="Write your message here..."
+          onchange="appData.brandingSections[${si}].content=this.value;saveData();">${s.content||''}</textarea>
+      </div>
+      <div>
+        <label class="admin-input-label">Section Image (optional)</label>
+        <div class="upload-area" onclick="document.getElementById('brandingImg-${si}').click()">
+          <label>📤 Upload image</label>
+          <input type="file" id="brandingImg-${si}" accept="image/*" onchange="handleBrandingImgUpload(this,${si})">
+        </div>
+        ${hasImg ? `<div style="margin-top:8px;display:flex;align-items:center;gap:10px;">
+          <img src="${s.image}" style="width:80px;height:80px;border-radius:10px;object-fit:cover;border:2px solid var(--pink-light);">
+          <button class="danger-btn" onclick="removeBrandingImage(${si})">✕ Remove Image</button>
+        </div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+}
+
+function addBrandingSection() {
+  if (!appData.brandingSections) appData.brandingSections = [];
+  appData.brandingSections.push({ title: '', content: '', image: '' });
+  saveData();
+  renderBrandingEditor();
+  showToast('✅ Section added!');
+}
+
+function removeBrandingSection(si) {
+  if (!confirm('Remove this section?')) return;
+  appData.brandingSections.splice(si, 1);
+  saveData();
+  renderBrandingEditor();
+  renderBrandingTab();
+  showToast('Section removed.');
+}
+
+function handleBrandingImgUpload(input, si) {
+  if (!input.files[0]) return;
+  const reader = new FileReader();
+  reader.onload = e => {
+    appData.brandingSections[si].image = e.target.result;
+    saveData();
+    renderBrandingEditor();
+    renderBrandingTab();
+    showToast('✅ Image uploaded!');
+  };
+  reader.readAsDataURL(input.files[0]);
+}
+
+function removeBrandingImage(si) {
+  appData.brandingSections[si].image = '';
+  saveData();
+  renderBrandingEditor();
+  renderBrandingTab();
+  showToast('Image removed.');
+}
+
+function saveBrandingSections() {
+  saveData();
+  renderBrandingTab();
+  showToast('✅ Branding saved!');
+}
+
+// ===================== ACTIVITIES ADMIN =====================
+function renderActivityEditors() {
+  const list = document.getElementById('activityEditorsList');
+  list.innerHTML = appData.activities.map((a, ai) => `
+    <div class="activity-editor" id="ae-${ai}">
+      <div class="activity-editor-header">
+        <b>${a.icon} ${a.name}</b>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;">
+          <button class="add-btn" onclick="addSectionToActivity(${ai})">＋ Add Section</button>
+          <button class="danger-btn" onclick="removeActivity(${ai})">✕ Remove</button>
+        </div>
+      </div>
+      <div class="admin-grid-3" style="margin-bottom:14px;">
+        <div><label class="admin-input-label">Name</label>
+          <input class="admin-input" value="${a.name}" onchange="appData.activities[${ai}].name=this.value;saveData();">
+        </div>
+        <div><label class="admin-input-label">Icon (emoji)</label>
+          <input class="admin-input" value="${a.icon}" style="font-size:20px;" onchange="appData.activities[${ai}].icon=this.value;saveData();">
+        </div>
+        <div><label class="admin-input-label">Tagline</label>
+          <input class="admin-input" value="${a.tagline||''}" onchange="appData.activities[${ai}].tagline=this.value;saveData();">
+        </div>
+      </div>
+      ${a.sections.map((s, si) => `
+        <div class="section-editor">
+          <div class="section-editor-header">
+            <input class="admin-input" value="${s.icon||'📌'}" style="width:50px;font-size:18px;text-align:center;" onchange="appData.activities[${ai}].sections[${si}].icon=this.value;saveData();">
+            <input class="admin-input" value="${s.title}" style="margin:0 8px;flex:1;" onchange="appData.activities[${ai}].sections[${si}].title=this.value;saveData();">
+            <button class="danger-btn" onclick="removeSection(${ai},${si})">✕</button>
+          </div>
+          <div id="pts-${ai}-${si}">
+            ${s.points.map((p, pi) => `
+              <div class="point-row">
+                <input class="admin-input" value="${p.replace(/"/g,'&quot;')}" onchange="appData.activities[${ai}].sections[${si}].points[${pi}]=this.value;saveData();">
+                <button class="danger-btn" style="padding:6px 10px;" onclick="removePoint(${ai},${si},${pi})">✕</button>
+              </div>
+            `).join('')}
+          </div>
+          <button class="add-btn" style="margin-top:8px;" onclick="addPoint(${ai},${si})">＋ Add Point</button>
+        </div>
+      `).join('')}
+    </div>
+  `).join('');
+}
+
+function addNewActivity() {
+  const id = 'activity_' + Date.now();
+  appData.activities.push({ id, name: 'New Activity', icon: '⭐', tagline: '', sections: [{ title: 'Rules & Instructions', icon: '📋', points: ['Add your first rule here.'] }] });
+  saveData();
+  renderActivityEditors();
+  renderActivitiesGrid();
+  showToast('✅ Activity added!');
+}
+
+function removeActivity(ai) {
+  if (!confirm('Remove this activity?')) return;
+  appData.activities.splice(ai, 1);
+  saveData();
+  renderActivityEditors();
+  renderActivitiesGrid();
+  showToast('Activity removed.');
+}
+
+function addSectionToActivity(ai) {
+  appData.activities[ai].sections.push({ title: 'New Section', icon: '📌', points: ['Add point here.'] });
+  saveData();
+  renderActivityEditors();
+  showToast('✅ Section added!');
+}
+
+function removeSection(ai, si) {
+  if (!confirm('Remove this section?')) return;
+  appData.activities[ai].sections.splice(si, 1);
+  saveData();
+  renderActivityEditors();
+  showToast('Section removed.');
+}
+
+function addPoint(ai, si) {
+  appData.activities[ai].sections[si].points.push('New point');
+  saveData();
+  renderActivityEditors();
+}
+
+function removePoint(ai, si, pi) {
+  appData.activities[ai].sections[si].points.splice(pi, 1);
+  saveData();
+  renderActivityEditors();
+}
+
+// ===================== SAVE DATA =====================
+function saveData() {
+  try {
+    localStorage.setItem('nts2026_data', JSON.stringify(appData));
+  } catch(e) {
+    showToast('⚠️ Storage limit reached. Consider removing some images.');
+  }
+}
+
+// ===================== LOGO LOADERS =====================
+['logo1Img','logo2Img'].forEach(id => {
+  const saved = localStorage.getItem('nts2026_' + id);
+  if (saved) {
+    document.getElementById(id).src = saved;
+    document.getElementById(id).style.display = 'block';
+    document.getElementById(id.replace('Img','Text')).style.display = 'none';
+  }
+});
+
+// ===================== TOAST =====================
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  clearTimeout(t._to);
+  t._to = setTimeout(() => { t.style.display = 'none'; }, 2800);
+}
+
+// ===================== EXPORT HTML =====================
+/**
+ * Export the current portal as a standalone HTML file.
+ * mode: 'admin' = full version with admin panel
+ *       'public' = cleaned version without admin credentials/panel
+ */
+function exportHTML(mode) {
+  // Inline current appData & logo images into the exported file
+  const currentAppDataStr = JSON.stringify(appData);
+  const logo1 = localStorage.getItem('nts2026_logo1Img') || '';
+  const logo2 = localStorage.getItem('nts2026_logo2Img') || '';
+
+  // Get this page's full HTML
+  let html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
+
+  // Inline the current appData so exported file loads with current data
+  html = html.replace(
+    /let appData\s*=\s*JSON\.parse\(localStorage\.getItem\('nts2026_data'\).*?\|\|\s*JSON\.parse\(JSON\.stringify\(DEFAULT_DATA\)\);/s,
+    `let appData = ${currentAppDataStr};`
+  );
+
+  // Inline logos
+  if (logo1) {
+    html = html.replace(
+      /\/\/ Load saved logos[\s\S]*?\}\);/,
+      `// Logos inlined
+document.getElementById('logo1Img').src = '${logo1.replace(/'/g,"\\'")}';
+document.getElementById('logo1Img').style.display = 'block';
+document.getElementById('logo1Text').style.display = 'none';
+${logo2 ? `document.getElementById('logo2Img').src = '${logo2.replace(/'/g,"\\'")}';
+document.getElementById('logo2Img').style.display = 'block';
+document.getElementById('logo2Text').style.display = 'none';` : ''}`
+    );
+  }
+
+  if (mode === 'public') {
+    // === PUBLIC VERSION: Strip admin-related content ===
+
+    // Remove admin credentials
+    html = html.replace(/const ADMIN_ID\s*=\s*".*?";/g, 'const ADMIN_ID = "";');
+    html = html.replace(/const ADMIN_PASS\s*=\s*".*?";/g, 'const ADMIN_PASS = "";');
+
+    // Remove admin panel HTML block
+    html = html.replace(/<div class="admin-panel-wrap"[\s\S]*?<\/div>\s*<!-- \/adminPanelWrap -->/,
+      '<!-- Admin panel removed in public version -->');
+
+    // Remove login modal
+    html = html.replace(/<div class="modal-overlay" id="loginModal"[\s\S]*?<\/div>\s*<\/div>\s*<\/div>/,
+      '<!-- Login modal removed in public version -->');
+
+    // Remove admin nav link
+    html = html.replace(/<a onclick="showAdminPanel\(event\)"[\s\S]*?<\/a>/g, '');
+
+    // Remove login/logout button
+    html = html.replace(/<button class="admin-btn"[\s\S]*?<\/button>/g, '');
+
+    // Remove logo click-to-upload (keep logos visible but not editable)
+    html = html.replace(/onclick="document\.getElementById\('logo[12]Input'\)\.click\(\)"/g, '');
+    html = html.replace(/<input type="file" id="logo[12]Input"[^>]*>/g, '');
+
+    // Remove export buttons and admin functions from JS
+    // (we keep the rest of the script intact so pages render correctly)
+    html = html.replace(/\/\/ ===================== ADMIN LOGIN[\s\S]*?\/\/ ===================== ADMIN PANEL[\s\S]*?\/\/ ===================== SAVE FUNCTIONS/,
+      '// Admin functions removed\n// ===================== SAVE FUNCTIONS');
+
+    // Disable admin-specific functions
+    const adminFuncsToNoop = [
+      'openLoginModal', 'closeLoginModal', 'doLogin', 'adminLogout',
+      'showAdminPanel', 'switchAdminTab', 'renderAdminPanel',
+      'saveSiteSettings', 'saveCountdown', 'saveContacts', 'saveRegistration',
+      'exportHTML'
+    ];
+    adminFuncsToNoop.forEach(fn => {
+      html = html.replace(
+        new RegExp(`function ${fn}\\s*\\(`, 'g'),
+        `function ${fn}_removed(`
+      );
+    });
+
+    // Add a note in the title
+    html = html.replace(/<title>(.*?)<\/title>/, '<title>$1</title>');
+  }
+
+  // Create downloadable file
+  const blob = new Blob([html], { type: 'text/html' });
+  const url  = URL.createObjectURL(blob);
+  const a    = document.createElement('a');
+  a.href     = url;
+  a.download = mode === 'admin' ? 'NTS2026_Admin.html' : 'NTS2026_Public.html';
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+  URL.revokeObjectURL(url);
+  showToast(`✅ ${mode === 'admin' ? 'Admin' : 'Public'} version exported!`);
+}
+
+// ===================== START =====================
+init();
+
+
+// ===== ADMIN ONLY LOGO UPLOAD PROTECTION =====
+function adminLogoUpload(inputId){
+
+  const adminPanel = document.getElementById('adminPanelWrap');
+
+  // Allow upload only when admin panel is visible
+  if(!adminPanel || adminPanel.style.display !== 'block'){
+    return;
+  }
+
+  document.getElementById(inputId).click();
+}
+
+</script>
+</body>
+</html>
